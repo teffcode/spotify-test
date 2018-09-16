@@ -6,6 +6,9 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from "redux-devtools-extension";
 import promiseMiddleware from 'redux-promise';
 
+// Utils
+import { headerUtils } from './utils';
+
 // Container
 import App from './components/App';
 
@@ -15,6 +18,9 @@ import './index.css';
 // Service Worker
 import registerServiceWorker from './registerServiceWorker';
 
+// Actions
+import { fetchUserSelf } from './actions';
+
 // Reducers
 import storeReducers from './reducers';
 
@@ -23,6 +29,13 @@ const store = createStore(
   storeReducers,
   composeWithDevTools(applyMiddleware(promiseMiddleware))
 );
+
+if (localStorage.accessToken) {
+  // Set authorization header
+  headerUtils.authorizationHeader(localStorage.accessToken);
+  // Dispatch action to fecth user self
+  store.dispatch(fetchUserSelf());
+}
 
 ReactDOM.render(
   <Provider store={store}>

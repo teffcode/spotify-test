@@ -32,6 +32,10 @@ class Login extends Component {
     }
   }
   render() {
+    const { isAuthenticated, history } = this.props;
+    if (isAuthenticated) {
+      history.push('/search');
+    }
     return (
       <div>
         <h2>Welcome to the spotify app</h2>
@@ -41,10 +45,17 @@ class Login extends Component {
   }
 }
 
+function mapStateToProps({ user }) {
+  return {
+    isAuthenticated: !!user.email,
+  }
+}
+
 Login.propTypes = {
   history: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
   location: PropTypes.object,
   fetchUserSelf: PropTypes.func,
 }
 
-export default connect(null, { fetchUserSelf })(Login);
+export default connect(mapStateToProps, { fetchUserSelf })(Login);

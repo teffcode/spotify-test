@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 class UserRoute extends Component {
   render() {
     const { isAuthenticated, component:Component, ...rest } = this.props;
+    console.log('IS AUTH: ', isAuthenticated);
     return (
       <Route
         {...rest}
