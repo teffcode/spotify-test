@@ -33,7 +33,7 @@ const store = createStore(
 if (localStorage.accessToken) {
   // Set authorization header
   headerUtils.authorizationHeader(localStorage.accessToken);
-  // Dispatch action to fecth user self
+  // Dispatch action to fetch user self
   store.dispatch(fetchUserSelf());
 }
 
