@@ -12,6 +12,9 @@ import { headerUtils } from '../../utils';
 // Actions
 import { fetchUserSelf } from '../../actions';
 
+// Styles
+import './Login.scss';
+
 class Login extends Component {
   // Life cycle methods
   componentDidMount() {
@@ -31,15 +34,38 @@ class Login extends Component {
         });
     }
   }
+
+  renderAnimation() {
+    const hearts = new Array(200).fill({})
+
+    return (
+      hearts.map((element, index) => {
+        const style = {
+          left: Math.floor((Math.random() * (window.innerWidth - 0))) + "px",
+          animationDelay: Math.floor((Math.random() * (80000 - 0))) + "ms"
+        }
+        return(
+          <div className="points" key={index} style={style}></div>
+        );
+      })
+    );
+  }  
+
+
   render() {
     const { isAuthenticated, history } = this.props;
     if (isAuthenticated) {
       history.push('/search');
     }
     return (
-      <div>
-        <h2>Welcome to the spotify app</h2>
-        <a href={`${config.API_URL}/login`}>Login</a>
+      <div className="login">
+        <div className="login-body">
+          <h1>Spotify Search</h1>  
+          <a href={`${config.API_URL}/login`}>Login to Spotify</a>
+        </div>            
+        <div className="login-animation">
+          { this.renderAnimation() }
+        </div>
       </div>
     );
   }

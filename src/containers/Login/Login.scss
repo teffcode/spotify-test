@@ -1,0 +1,91 @@
+.login {
+  background-image: linear-gradient(to bottom right, #f06962, #284bae);
+  height: 100vh;
+  margin: 0px;
+  width: 100vw;
+}
+
+.login-animation {
+  background-image: url(https://images.pexels.com/photos/1081685/pexels-photo-1081685.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  opacity: 0.4;
+  width: 100vw;
+}
+
+.login-body {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  left: 0;
+  margin: auto; 
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 220px;
+  z-index: 1; 
+
+  a {
+    @extend .text;
+    background-color: transparent;
+    border: 2px solid white;
+    cursor: pointer;
+    height: 40px;
+    line-height: 2.5;
+    text-align: center;
+    text-decoration: none; 
+    text-transform: uppercase;
+  }
+
+  h1 {
+    @extend .text;
+    margin: auto;
+    top: 20vh;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+}
+
+.points {
+  animation-name: points, move;
+  animation-duration: .8s, 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: steps(28), linear;
+  animation-iteration-count: infinite, 1;
+
+  background-color: transparent;
+  border-radius: 50%;
+  bottom: -100px;
+  box-shadow: 0 10px 20px black, 0 6px 6px black;
+  display: inline-block;
+  height: 50px;
+  position: fixed;
+  width: 50px;
+}
+
+.text {
+  color: white;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+@keyframes move {
+  from {
+    bottom: 0;
+    position: absolute;
+  }
+  to {
+    bottom: 110%;
+    position: absolute;
+  }
+}
+
+@keyframes points {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: right;
+  }
+}

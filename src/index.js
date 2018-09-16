@@ -13,10 +13,7 @@ import { headerUtils } from './utils';
 import App from './components/App';
 
 // Styles
-import './index.css';
-
-// Service Worker
-import registerServiceWorker from './registerServiceWorker';
+import './index.scss';
 
 // Actions
 import { fetchUserSelf } from './actions';
@@ -43,4 +40,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-registerServiceWorker();

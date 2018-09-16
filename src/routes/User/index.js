@@ -29,5 +29,6 @@ function mapStateToProps ({ user }) {
 
 UserRoute.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
+  component: PropTypes.object,
 }
 export default connect(mapStateToProps)(UserRoute);
