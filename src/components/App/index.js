@@ -7,13 +7,18 @@ import { UserRoute } from '../../routes';
 
 // Components
 import Login from '../../containers/Login';
-import Search from '../../containers/Search';
+import Search from '../Search';
+import TrackInfo from '../TrackInfo';
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <Switch>
+          <UserRoute
+            path="/track/:trackid"
+            component={TrackInfo}
+          />
           <UserRoute
             path="/Search"
             component={Search}
