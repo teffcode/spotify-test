@@ -3,10 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from "redux-devtools-extension";
 import promiseMiddleware from 'redux-promise';
 
 // Container
-import App from './containers/App';
+import App from './components/App';
 
 // Styles
 import './index.css';
@@ -18,10 +19,13 @@ import registerServiceWorker from './registerServiceWorker';
 import storeReducers from './reducers';
 
 // Configurate middlewares for the store
-const storeMiddlewares = applyMiddleware(promiseMiddleware)(createStore);
+const store = createStore(
+  storeReducers,
+  composeWithDevTools(applyMiddleware(promiseMiddleware))
+);
 
 ReactDOM.render(
-  <Provider store={storeMiddlewares(storeReducers)}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')

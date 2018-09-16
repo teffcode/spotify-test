@@ -1,8 +1,8 @@
 // Routes
-import GuestRoute from './Guest';
 import UserRoute from './User';
+import GuestRoute from './Guest';
 
 export {
-  GuestRoute,
   UserRoute,
+  GuestRoute,
 };
