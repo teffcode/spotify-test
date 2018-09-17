@@ -9,16 +9,7 @@ This application has 3 views:
 
 The application uses the spotify API. For allow the user interact with the sporify api, first of all we need to create an oauth server to allow the user login with the platform. [This Oauth server](https://payfully-spotify-api-test.herokuapp.com/) was created with node and its specific task is authenticate the user with spotify using the next flow:
 
-```mermaid
-sequenceDiagram
-User ->> Web: GET: /Login
-Web ->> OAuthServer: GET: /Login
-OAuthServer ->> User: Redirect to spotify auth
-User ->> Spotify: POST: /Login
-Spotify ->> OAuthServer: GET /callback
-OAuthServer ->> Web: Get /Login?accessToken?xxxx
-Web ->> User: Redirect to /search 
-```
+<img src="./src/assets/umlLoginFlow.png">
 
 ## Folder Structure
 
@@ -64,3 +55,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
+😃
