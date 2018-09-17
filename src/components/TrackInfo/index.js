@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 // Config
 import config from '../../config';
 
+// Styles
+import './TrackInfo.scss';
+
 class TrackInfo extends Component {
   constructor(props) {
     super(props);
@@ -37,17 +40,26 @@ class TrackInfo extends Component {
   }
   render() {
     const { artist, nameSong, duration, albumCover } = this.state;
+    let backgraundStyle;
+
+    if (albumCover && albumCover !== '') {
+      backgraundStyle = {
+        background:`linear-gradient(to top, #161827,  transparent), url(${albumCover})`
+      }
+    }
 
     return(
-      <div>
-        <h2>Track info</h2>
-        <div>
+      <div className="track">
+        {
+          backgraundStyle ? <div style={backgraundStyle} className="track-background"></div> : null 
+        }
+        <div className="track-info">
           <img src={albumCover} alt="album-cover" height="300" width="300" />
-          <span>Artist: {artist}</span>
+          <h1>{artist}</h1>
           <span>Song: {nameSong}</span>
-          <span>Duration: {`${duration/1000}segundos`}</span>
+          <span>Duration: {`${Math.round((duration/1000)/60)} Minutos`}</span>
+          <Link to="/search">Regresar</Link>
         </div>
-        <Link to="/search">Regresar</Link>
       </div>
     );
   }

@@ -1,0 +1,54 @@
+.text {
+  color: white;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+.track {
+  background-color: #161827;
+  height: 100vh;
+  text-align: center;
+}
+
+.track-background {
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+  opacity: 0.4;
+  width: 100vw;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 200px;
+  width: 300px;
+  z-index: 2;
+
+  h1 {
+    @extend .text;
+  }
+
+  span {
+    @extend .text;
+    font-size: 20px;
+  }
+
+  a {
+    @extend .text;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+    height: 40px;
+    line-height: 2.5;
+    margin: 25px 0px;
+    text-align: center;
+    text-decoration: none; 
+    text-transform: uppercase;
+  }
+}
+

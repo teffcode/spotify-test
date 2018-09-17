@@ -31,9 +31,11 @@
     @extend .text;
     background-color: transparent;
     border: 2px solid white;
+    border-radius: 25px;
     cursor: pointer;
     height: 40px;
     line-height: 2.5;
+    margin: 20px 0px;
     text-align: center;
     text-decoration: none; 
     text-transform: uppercase;
