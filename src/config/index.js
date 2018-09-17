@@ -8,7 +8,7 @@ export default (function() {
       API_SPOTIFY_URL = 'https://api.spotify.com/v1';
       break;
     case 'develop':
-      API_URL = 'http://api-app.com';
+      API_URL = 'https://payfully-spotify-api-test.herokuapp.com';
       API_SPOTIFY_URL = 'https://api.spotify.com/v1';
       break;
     default:
