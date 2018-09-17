@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// Styles
+import './TracksTable.scss';
+
 class TracksTable extends Component {
   handleClick = (e, trackId) => {
     const { history } = this.props;
@@ -12,7 +15,7 @@ class TracksTable extends Component {
     const { tracks } = this.props;
 
     return (
-      <div>
+      <div className="tracks-table">
         <table>
           <thead>
             <tr>
@@ -25,7 +28,7 @@ class TracksTable extends Component {
             {
               tracks.map(track => {
                 return (
-                  <tr onClick={(e) => this.handleClick(e, track.id)} key={track.id}>
+                  <tr className="row" onClick={(e) => this.handleClick(e, track.id)} key={track.id}>
                     <td>{track.artists[0].name}</td>
                     <td>{track.name}</td>
                     <td>{track.album.name}</td>

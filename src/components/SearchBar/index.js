@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// Styles
+import './SearchBar.scss';
+
 class SearchBar extends Component {
   constructor(props) {
     super(props)
@@ -27,7 +30,7 @@ class SearchBar extends Component {
   }
   render() {
     return(
-      <div>
+      <div className="search-bar">
         <input
           placeholder = "Search"
           value = { this.state.term } 

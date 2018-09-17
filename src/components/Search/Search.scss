@@ -1,0 +1,32 @@
+.search {
+  background-color: #161827;
+  height: 100vh;
+  margin: 0px;
+  position: relative;
+  width: 100vw;
+
+  h1 {
+    @extend .text;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 1px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 235px;
+  }
+}
+
+.search-header {
+  background: linear-gradient(to top, #161827,  transparent), url(https://images.pexels.com/photos/1034677/pexels-photo-1034677.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-position: center;
+  background-size: cover;
+  height: 50vh; 
+  width: 110%;
+}
+
+.text {
+  color: white;
+  font-family: 'Signika Negative', sans-serif;
+}

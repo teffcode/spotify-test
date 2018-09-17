@@ -11,6 +11,9 @@ import config from '../../config';
 import SearchBar from '../SearchBar';
 import TracksTable from '../TracksTable';
 
+// Styles
+import './Search.scss';
+
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -48,8 +51,9 @@ class Search extends Component {
     const searchData = _.debounce((term) => this.searchTerm(term), 300);
   
     return(
-      <div>
-        <h2>Search something</h2>
+      <div className="search">
+        <div className="search-header"></div>
+        <h1>• Search •</h1>
         <SearchBar onSearchTerm={searchData}/>
         {
           tracks.length > 0 

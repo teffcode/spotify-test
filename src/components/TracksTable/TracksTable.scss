@@ -1,0 +1,31 @@
+.tracks-table {
+  color: white;
+  font-family: 'Signika Negative', sans-serif;
+  font-size: 18px;
+  left: 0;
+  margin: auto;
+  padding: 0px 10px;
+  position: absolute;
+  right: 0;
+  top: 350px;
+  width: 60vw;
+
+  table {
+    width: 60vw;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  th {
+    padding: 15px;
+  }
+
+  .row {
+    &:hover {
+      background: #b53e4e;
+      cursor: pointer;
+    }
+  }
+}
