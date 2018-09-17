@@ -26,7 +26,7 @@ class Search extends Component {
   searchTerm = (term) => {
     axios.get(`${config.API_SPOTIFY_URL}/search?q=${term}&type=track&limit=10`)
       .then((res) => {
-        if (res.data.tracks.items.length > 0) {
+        if (res.data.tracks.items.length > 0) { 
           this.setState((prevState) => {
             return {
               ...prevState,

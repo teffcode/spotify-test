@@ -9,7 +9,7 @@ import promiseMiddleware from 'redux-promise';
 // Utils
 import { headerUtils } from './utils';
 
-// Container
+// Component
 import App from './components/App';
 
 // Styles
