@@ -1,0 +1,23 @@
+.navbar {
+  background-color: #161827;
+  color: white;
+  height: 50px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  ul {
+      display: flex;
+      font-family: 'Signika Negative', sans-serif;
+      justify-content: flex-end;
+      letter-spacing: 1px;
+      padding: 0px 20px;
+  }
+  li {
+      cursor: pointer;
+      list-style-type: none;
+      margin: 0px 10px;
+      &:hover {
+          text-decoration: underline;
+      }
+  }
+}

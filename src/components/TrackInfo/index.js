@@ -10,6 +10,9 @@ import config from '../../config';
 // Styles
 import './TrackInfo.scss';
 
+// Components
+import Navbar from '../../containers/Navbar';
+
 class TrackInfo extends Component {
   constructor(props) {
     super(props);
@@ -40,6 +43,7 @@ class TrackInfo extends Component {
   }
   render() {
     const { artist, nameSong, duration, albumCover } = this.state;
+    const { history } = this.props;
     let backgraundStyle;
 
     if (albumCover && albumCover !== '') {
@@ -49,16 +53,19 @@ class TrackInfo extends Component {
     }
 
     return(
-      <div className="track">
-        {
-          backgraundStyle ? <div style={backgraundStyle} className="track-background"></div> : null 
-        }
-        <div className="track-info">
-          <img src={albumCover} alt="album-cover" height="300" width="300" />
-          <h1>{artist}</h1>
-          <span>Song: {nameSong}</span>
-          <span>Duration: {`${Math.round((duration/1000)/60)} Minutos`}</span>
-          <Link to="/search">Regresar</Link>
+      <div>
+        <Navbar history={history} />
+        <div className="track">
+          {
+            backgraundStyle ? <div style={backgraundStyle} className="track-background"></div> : null 
+          }
+          <div className="track-info">
+            <img src={albumCover} alt="album-cover" height="300" width="300" />
+            <h1>{artist}</h1>
+            <span>Song: {nameSong}</span>
+            <span>Duration: {`${Math.round((duration/1000)/60)} Minutos`}</span>
+            <Link to="/search">Regresar</Link>
+          </div>
         </div>
       </div>
     );
@@ -67,6 +74,9 @@ class TrackInfo extends Component {
 
 TrackInfo.propTypes = {
   match: PropTypes.object.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 }
 
 export default TrackInfo;

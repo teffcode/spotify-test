@@ -10,6 +10,7 @@ import { fetchTracks } from '../../actions';
 // Components
 import SearchBar from '../../components/SearchBar';
 import TracksTable from '../../components/TracksTable';
+import Navbar from '../Navbar';
 
 // Styles
 import './Search.scss';
@@ -28,6 +29,7 @@ class Search extends Component {
   
     return(
       <div className="search">
+        <Navbar history={history}/>
         <div className="search-header"></div>
         <h1>• Search •</h1>
         <SearchBar onSearchTerm={searchData}/>

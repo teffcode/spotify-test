@@ -2,12 +2,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Config
 import config from '../../config';
 
 // Styles
 import './TrackCurrentlyPlaying.scss';
+
+// Components
+import Navbar from '../../containers/Navbar';
 
 class TrackCurrentlyPlating extends Component {
   constructor(props) {
@@ -51,6 +55,7 @@ class TrackCurrentlyPlating extends Component {
   }
   render() {
     const { artist, nameSong, duration, albumCover, playingSong } = this.state;
+    const { history } = this.props;
     let backgraundStyle;
 
     if (albumCover && albumCover !== '') {
@@ -62,13 +67,16 @@ class TrackCurrentlyPlating extends Component {
     if (!playingSong) {
       return (
         <div className="track">
-          <h2 style={{ color: "white" }}>The user currently is not playing a song</h2>
+          {/* TODO Fix styles */}
+          <Navbar history={history}/>
+          <h2 style={{ color: "white", marginTop: "100px" }}>The user currently is not playing a song</h2> 
         </div>
       );
     }
 
     return (
       <div className="track">
+        <Navbar history={history} />
         {
           backgraundStyle ? <div style={backgraundStyle} className="track-background"></div> : null 
         }
@@ -82,6 +90,12 @@ class TrackCurrentlyPlating extends Component {
       </div>
     );
   }
+}
+
+TrackCurrentlyPlating.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 }
 
 export default TrackCurrentlyPlating;
