@@ -20,25 +20,6 @@ class Search extends Component {
     const { fetchTracks } = this.props;
     // Dispatch action
     fetchTracks(term);
-    // axios.get(`${config.API_SPOTIFY_URL}/search?q=${term}&type=track&limit=10`)
-    //   .then((res) => {
-    //     if (res.data.tracks.items.length > 0) { 
-    //       this.setState((prevState) => {
-    //         return {
-    //           ...prevState,
-    //           tracks: res.data.tracks.items,
-    //         }
-    //       });
-    //     }
-    //   })
-    //   .catch(() => {
-    //     this.setState((prevState) => {
-    //       return {
-    //         ...prevState,
-    //         tracks: [],
-    //       }
-    //     });
-    //   });
   }
 
   render() {

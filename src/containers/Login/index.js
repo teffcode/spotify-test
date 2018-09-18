@@ -53,10 +53,6 @@ class Login extends Component {
 
 
   render() {
-    const { isAuthenticated, history } = this.props;
-    if (isAuthenticated) {
-      history.push('/search');
-    }
     return (
       <div className="login">
         <div className="login-body">

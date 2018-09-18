@@ -10,7 +10,7 @@ class TracksTable extends Component {
   handleClick = (e, trackId) => {
     const { history } = this.props;
     e.preventDefault();
-    history.push(`track/${trackId}`);
+    history.push(`/track/${trackId}`);
   }
   render() {
     const { tracks } = this.props;
