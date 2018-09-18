@@ -69,7 +69,9 @@ class TrackCurrentlyPlating extends Component {
         <div className="track">
           {/* TODO Fix styles */}
           <Navbar history={history}/>
-          <h2 style={{ color: "white", marginTop: "100px" }}>The user currently is not playing a song</h2> 
+          <h2>
+            The user currently is not playing a song
+          </h2> 
         </div>
       );
     }

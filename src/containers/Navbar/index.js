@@ -23,10 +23,13 @@ class Navbar extends Component {
 
     return(
       <nav className="navbar">
+        <li>
+          <i className="fas fa-music"></i>
+          {(displayName) ? displayName : ''}
+        </li>
         <ul>
           <Link to="/search"><li>Search</li></Link>
           <Link to="/user/track/current"><li>Current Song</li></Link>
-          <li>{(displayName) ? displayName : ''}</li>
           <li onClick={this.handleLogout}>Logout</li>
         </ul>
       </nav>

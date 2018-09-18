@@ -1,21 +1,33 @@
 .navbar {
   background-color: #161827;
   color: white;
+  display: flex;
+  font-family: 'Signika Negative', sans-serif;
   height: 50px;
+  justify-content: space-between;
   position: fixed;
   top: 0px;
   width: 100%;
+  z-index: 3;
+  
   ul {
       display: flex;
-      font-family: 'Signika Negative', sans-serif;
       justify-content: flex-end;
       letter-spacing: 1px;
       padding: 0px 20px;
-  }
-  li {
+    }
+
+    i {
+      margin-right: 10px;
+    }
+    
+    li, a {
+      align-self: center;
+      color: white;
       cursor: pointer;
       list-style-type: none;
       margin: 0px 10px;
+      text-decoration: none; 
       &:hover {
           text-decoration: underline;
       }
