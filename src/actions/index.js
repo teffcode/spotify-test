@@ -16,6 +16,16 @@ const fetchUserSelf = () => {
   }
 };
 
+const fetchTracks = (term) => {
+  const request = axios.get(`${config.API_SPOTIFY_URL}/search?q=${term}&type=track&limit=10`);
+
+  return {
+    type: types.FETCH_TRACKS,
+    payload: request,
+  }
+}
+
 export {
   fetchUserSelf,
+  fetchTracks,
 };

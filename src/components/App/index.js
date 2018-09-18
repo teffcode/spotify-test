@@ -7,7 +7,7 @@ import { UserRoute } from '../../routes';
 
 // Components
 import Login from '../../containers/Login';
-import Search from '../Search';
+import Search from '../../containers/Search';
 import TrackInfo from '../TrackInfo';
 
 class App extends Component {
