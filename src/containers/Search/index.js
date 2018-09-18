@@ -29,13 +29,15 @@ class Search extends Component {
     return(
       <div className="search">
         <div className="search-header"></div>
-        <h1>• Search •</h1>
-        <SearchBar onSearchTerm={searchData}/>
-        {
-          Object.keys(tracks).length > 0 
+        <div className="search-content">
+          <h1>• Search •</h1>
+          <SearchBar onSearchTerm={searchData}/>
+          {
+            Object.keys(tracks).length > 0 
             ? <TracksTable history={history} tracks={tracks} />
             : null
-        }
+          }
+        </div>
       </div>
     );
   }
