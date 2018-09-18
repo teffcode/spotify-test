@@ -7,12 +7,15 @@ import PropTypes from 'prop-types';
 // Styles
 import './Navbar.scss';
 
+import { logoutUser } from '../../actions';
+
 class Navbar extends Component {
   handleLogout = (e) => {
     e.preventDefault();
-    const { history } = this.props;
+    const { history, logoutUser } = this.props;
     // Dispatch action logout
-    console.log('LOGOUT');
+    logoutUser();
+    // Redirect to /
     history.push('/');
   }
   render() {
@@ -39,9 +42,10 @@ function mapStateToProps({ user }) {
 
 Navbar.propTypes = {
   displayName: PropTypes.string.isRequired,
+  logoutUser: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, { logoutUser })(Navbar);

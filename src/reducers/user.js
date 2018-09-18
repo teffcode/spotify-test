@@ -9,6 +9,8 @@ export default (state = {}, action) => {
         displayName: action.payload.data.display_name,
         email: action.payload.data.email,
       }
+    case types.LOGOUT_USER:
+      return {}
     default:
       return state;
   }

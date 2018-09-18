@@ -7,6 +7,9 @@ import types from './types';
 // Config
 import config from '../config'
 
+// Utilities
+import { headerUtils } from '../utils';
+
 const fetchUserSelf = () => {
   const request = axios.get(`${config.API_SPOTIFY_URL}/me`);
 
@@ -25,7 +28,19 @@ const fetchTracks = (term) => {
   }
 }
 
+const logoutUser = () => {
+  headerUtils.authorizationHeader();
+  localStorage.removeItem('accessToken');
+
+  return {
+    type: types.LOGOUT_USER,
+    payload: {},
+  }
+
+}
+
 export {
   fetchUserSelf,
   fetchTracks,
+  logoutUser,
 };
