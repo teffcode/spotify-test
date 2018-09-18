@@ -2,30 +2,33 @@
   color: white;
   font-family: 'Signika Negative', sans-serif;
   font-size: 18px;
-  left: 0;
-  margin: auto;
+  margin: 0px 40px;
+  overflow-x: hidden;
   padding: 0px 10px;
-  position: absolute;
-  right: 0;
   top: 350px;
-  width: 60vw;
-
-  table {
-    width: 60vw;
+  .background {
+    background-color: rgba(255, 255, 255, 0.05);
   }
-
-  td {
-    text-align: center;
-  }
-
-  th {
-    padding: 15px;
-  }
-
   .row {
     &:hover {
       background: #b53e4e;
       cursor: pointer;
     }
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  td {
+    padding: 5px;
+    text-align: left;
+  }
+  th {
+    @extend td, .background;
+  }
+  tr:nth-child(even) {
+    @extend .background;
   }
 }
