@@ -47,7 +47,6 @@ class App extends Component {
   }
 }
 
-
 function mapStateToProps({ user }) {
   return {
     isAuthenticated: !!user.email,
@@ -58,4 +57,5 @@ App.propTypes = {
   isAuthenticated: PropTypes.bool,
   history: PropTypes.object,
 }
+
 export default connect(mapStateToProps)(App);

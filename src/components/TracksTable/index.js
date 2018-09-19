@@ -12,6 +12,7 @@ class TracksTable extends Component {
     e.preventDefault();
     history.push(`/track/${trackId}`);
   }
+
   render() {
     const { tracks } = this.props;
 
