@@ -46,6 +46,7 @@
     "redux-devtools-extension": "2.13.5",
     "redux-promise": "0.6.0",
     "resolve": "1.6.0",
+    "sinon": "^6.3.4",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
@@ -61,9 +62,13 @@
     "lint": "eslint src/**/*.js src/**/*.jsx"
   },
   "devDependencies": {
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "5.6.0",
     "eslint-plugin-react": "7.11.1",
     "node-sass": "4.9.3",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.3.2",
     "sass-loader": "7.1.0"
   },
   "jest": {
@@ -71,7 +76,8 @@
       "src/**/*.{js,jsx,mjs}"
     ],
     "setupFiles": [
-      "<rootDir>/config/polyfills.js"
+      "<rootDir>/config/polyfills.js",
+      "<rootDir>/src/setupTests.js"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
