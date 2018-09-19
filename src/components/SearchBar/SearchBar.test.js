@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
+import { expect } from 'chai';
 import { spy } from 'sinon';
 
 import SearchBar from './index';
@@ -9,7 +10,6 @@ describe('SearchBar Component', () => {
         const defaultProps = {
             onSearchTerm: spy()
         };
-
         const props = Object.assign({}, defaultProps, newProps);
         const wrapper = shallow(<SearchBar {...props} />);
         return { props, wrapper };
@@ -19,5 +19,18 @@ describe('SearchBar Component', () => {
 
     it('renders without crashing', () => {
         expect(wrapper).to.be.present();
+    });
+
+    it('the component is a div', () => {
+        expect(wrapper).to.have.type('div');
+    });
+
+    it('render one children: input', () => {
+        expect(wrapper.children()).to.have.length(1);
+    });
+
+    it('sets state in its onInputChange method', () => {
+        wrapper.instance().onInputChange(1);
+        expect(wrapper.state().term).to.eql(1);
     });
 });
