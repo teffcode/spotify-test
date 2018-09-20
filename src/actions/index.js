@@ -10,8 +10,8 @@ import config from '../config'
 // Utilities
 import { headerUtils } from '../utils';
 
-const fetchUserSelf = () => {
-  const request = axios.get(`${config.API_SPOTIFY_URL}/me`);
+const fetchUserSelf = async () => {
+  const request = await axios.get(`${config.API_SPOTIFY_URL}/me`);
 
   return {
     type: types.FETCH_USER_SELF,
@@ -19,8 +19,8 @@ const fetchUserSelf = () => {
   }
 };
 
-const fetchTracks = (term) => {
-  const request = axios.get(`${config.API_SPOTIFY_URL}/search?q=${term}&type=track&limit=10`);
+const fetchTracks = async (term) => {
+  const request = await axios.get(`${config.API_SPOTIFY_URL}/search?q=${term}&type=track&limit=10`);
 
   return {
     type: types.FETCH_TRACKS,
@@ -28,7 +28,7 @@ const fetchTracks = (term) => {
   }
 }
 
-const logoutUser = () => {
+const logoutUser = async () => {
   headerUtils.authorizationHeader();
   localStorage.removeItem('accessToken');
 
