@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
-import tracks from './tracks';
-import types from '../actions/types';
+import tracks from '../../reducers/tracks';
+import types from '../../actions/types';
 
 describe('Tracks Reducer', () => {
 

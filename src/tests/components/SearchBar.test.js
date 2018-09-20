@@ -3,19 +3,15 @@ import {shallow} from 'enzyme';
 import { expect } from 'chai';
 import { spy } from 'sinon';
 
-import TracksTable from './index';
-import renderTracksTable from './index';
+import SearchBar from '../../components/SearchBar';
 
 describe('SearchBar Component', () => {
     const makeWrapper = (newProps = {}) => {
         const defaultProps = {
-            tracks: {},
-            history: {
-                push: spy()
-            }
+            onSearchTerm: spy()
         };
         const props = Object.assign({}, defaultProps, newProps);
-        const wrapper = shallow(<TracksTable {...props} />);
+        const wrapper = shallow(<SearchBar {...props} />);
         return { props, wrapper };
     };
 
@@ -29,24 +25,12 @@ describe('SearchBar Component', () => {
         expect(wrapper).to.have.type('div');
     });
 
-    it('render one children: table', () => {
+    it('render one children: input', () => {
         expect(wrapper.children()).to.have.length(1);
     });
 
-    it('TracksTable has a tracks-table className', () => {    
-        expect(wrapper).to.have.className('tracks-table');    
+    it('sets state in its onInputChange method', () => {
+        wrapper.instance().onInputChange(1);
+        expect(wrapper.state().term).to.eql(1);
     });
-
-    it('no se', () => {    
-        expect(wrapper
-            .children()
-            .at(0)
-            .children()
-            .at(1)
-        ).to.contain(<tbody/>);
-    });
-
-    it('renders tr element by track', () => {
-    });
-    
 });

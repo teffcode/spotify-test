@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { spy, assert } from 'sinon';
 
-import Navbar from './Navbar';
+import Navbar from '../../containers/Navbar';
 
 describe('Navbar Component', () => {
     const makeWrapper = (newProps = {}) => {
@@ -15,7 +15,7 @@ describe('Navbar Component', () => {
             }
         };
         const props = Object.assign({}, defaultProps, newProps);
-        const wrapper = shallow(<Navbar {...props} />);
+        const wrapper = shallow(<Navbar {...props} />).dive();
         return { props, wrapper };
     };
 

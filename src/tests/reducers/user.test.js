@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
-import user from './user';
-import types from '../actions/types';
+import user from '../../reducers/user';
+import types from '../../actions/types';
 
 describe('User Reducer', () => {
 
