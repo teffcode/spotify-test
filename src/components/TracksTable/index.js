@@ -1,6 +1,7 @@
 // External libraries
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 // Styles
 import './TracksTable.scss';
@@ -9,8 +10,9 @@ class TracksTable extends Component {
   handleClick = (e, trackId) => {
     const { history } = this.props;
     e.preventDefault();
-    history.push(`track/${trackId}`);
+    history.push(`/track/${trackId}`);
   }
+
   render() {
     const { tracks } = this.props;
 
@@ -26,7 +28,7 @@ class TracksTable extends Component {
           </thead>
           <tbody>
             {
-              tracks.map(track => {
+              _.map(tracks, (track) => {
                 return (
                   <tr className="row" onClick={(e) => this.handleClick(e, track.id)} key={track.id}>
                     <td>{track.artists[0].name}</td>
@@ -44,7 +46,7 @@ class TracksTable extends Component {
 }
 
 TracksTable.propTypes = {
-  tracks: PropTypes.array.isRequired,
+  tracks: PropTypes.object.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired

@@ -33,10 +33,13 @@ spotify-test/
     containers/
     reducers/
     routes/
+    test/
     utils/
     index.scss
     index.js
 ```
+
+Where in *src/test* there are some tests about actions, reducers, components and containers.
 
 ## Project execution
 ### `npm start`

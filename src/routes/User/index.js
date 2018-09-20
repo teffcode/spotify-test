@@ -1,34 +1,24 @@
 // External libraries
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Redirect, Route } from 'react-router-dom';
+import React from 'react';
+import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-class UserRoute extends Component {
-  render() {
-    const { isAuthenticated, component:Component, ...rest } = this.props;
-
-    return (
-      <Route
-        {...rest}
-        render = {props =>
-          isAuthenticated
-            ? <Component {...props} />
-            : <Redirect to="/"/>
-        }
-      />
-    );
-  }
-}
-
-function mapStateToProps ({ user }) {
-  return {
-    isAuthenticated: !!user.email,
-  }
+const UserRoute = ({ isAuthenticated, component:Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render = {props =>
+        isAuthenticated
+          ? <Component {...props} />
+          : null
+      }
+    />
+  );
 }
 
 UserRoute.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.bool,
   component: PropTypes.func.isRequired,
+  location: PropTypes.object,
 }
-export default connect(mapStateToProps)(UserRoute);
+export default UserRoute;

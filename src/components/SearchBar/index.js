@@ -23,11 +23,12 @@ class SearchBar extends Component {
         term,
       }
     });
+    
     if (termState.length > 0 ) {
       onSearchTerm(term);
     }
-  
   }
+
   render() {
     return(
       <div className="search-bar">
