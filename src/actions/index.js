@@ -11,7 +11,12 @@ import config from '../config'
 import { headerUtils } from '../utils';
 
 const fetchUserSelf = async () => {
-  const request = await axios.get(`${config.API_SPOTIFY_URL}/me`);
+  let request;
+  try{
+    request = await axios.get(`${config.API_SPOTIFY_URL}/me`);
+  } catch (err) {
+    throw (err.message);
+  }
 
   return {
     type: types.FETCH_USER_SELF,
