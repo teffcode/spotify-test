@@ -1,11 +1,11 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import { spy } from 'sinon';
+import { spy, assert } from 'sinon';
 
-import Navbar from './index';
+import Navbar from './Navbar';
 
-describe('SearchBar Component', () => {
+describe('Navbar Component', () => {
     const makeWrapper = (newProps = {}) => {
         const defaultProps = {
             displayName: '',
@@ -15,7 +15,7 @@ describe('SearchBar Component', () => {
             }
         };
         const props = Object.assign({}, defaultProps, newProps);
-        const wrapper = shallow(<Navbar {...props} />).dive();
+        const wrapper = shallow(<Navbar {...props} />);
         return { props, wrapper };
     };
 
@@ -25,16 +25,18 @@ describe('SearchBar Component', () => {
         expect(wrapper).to.be.present();
     });
 
-    // it('the component is a div', () => {
-    //     expect(wrapper).to.have.type('div');
-    // });
+    it('the component is a nav', () => {
+        expect(wrapper).to.have.type('nav');
+    });
 
-    // it('render one children: input', () => {
-    //     expect(wrapper.children()).to.have.length(1);
-    // });
+    it('simulate click in li element', () => {
+        wrapper
+            .find('ul > li')
+            .simulate('click', { preventDefault: () => {} });
+    });
 
-    // it('sets state in its onInputChange method', () => {
-    //     wrapper.instance().onInputChange(1);
-    //     expect(wrapper.state().term).to.eql(1);
-    // });
+    it('renders children', () => {
+        expect(wrapper.find('nav > li')).to.have.text(props.displayName);
+    });
+
 });
