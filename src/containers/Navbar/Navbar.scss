@@ -14,11 +14,12 @@
       display: flex;
       justify-content: flex-end;
       letter-spacing: 1px;
-      padding: 0px 20px;
     }
 
     i {
+      color: white;
       margin-right: 10px;
+      margin-left: 5px;
     }
     
     li, a {
@@ -41,19 +42,13 @@
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 400px) {
   li, a {
     font-size: 12px;
+    margin: 0px 5px !important;
   }
 
   ul {
     padding: 0px !important;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  li, a {
-    font-size: 11px;
-    margin: 0px 5px !important;
   }
 }

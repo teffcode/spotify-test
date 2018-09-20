@@ -29,7 +29,9 @@ class Navbar extends Component {
         <ul className="navbar-menu">
           <Link to="/search"><li>Search</li></Link>
           <Link to="/user/track/current"><li>Current</li></Link>
-          <li onClick={this.handleLogout}>Logout</li>
+          <li onClick={this.handleLogout}>
+            <i className="fas fa-sign-out-alt"></i>
+          </li>
         </ul>
       </nav>
     );
