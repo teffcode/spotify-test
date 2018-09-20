@@ -4,7 +4,6 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import axios from "axios";
-import MockAdapter from 'axios-mock-adapter';
 
 import * as actions from './';
 import {fetchUserSelf} from './';
@@ -12,32 +11,26 @@ import types from './types';
 import config from '../config'
 
 describe('Actions', () => {
-    let sandbox;
-    let axiosGetStub;
 
+    let sandbox;
     beforeEach(() => {
         sandbox = sinon.createSandbox();
-        axiosGetStub =  sandbox
-            .stub(axios, 'get')
-            .resolves({
-                data: {
-                    prop1: 1,
-                    prop2: 2
-                }
-            })
-    })
-
-    afterEach(() => {
-        sandbox.reset();
     });
 
-    // after(() => {
-    //     sandbox.restore();
-    // });
+    afterEach(() => {
+        sandbox.restore();
+    });
 
     it('fetchUserSelf', async () => {
-        sinon.assert.calledOnce(axiosGetStub);
+        const fechAction = {
+            type: types.FETCH_USER_SELF,
+            payload: { data: { prop1: '1', prop2: 2 } },
+        }
+        sandbox.stub(axios, 'get').resolves({
+            data: { prop1: '1', prop2: 2 },
+        });
+
         const fetchUserSelf = await actions.fetchUserSelf();
-        console.log(fetchUserSelf)
+        expect(fetchUserSelf).to.eql(fechAction);
     })
 });
