@@ -12,6 +12,7 @@ import { headerUtils } from '../utils';
 
 const fetchUserSelf = async () => {
   let request;
+
   try{
     request = await axios.get(`${config.API_SPOTIFY_URL}/me`);
   } catch (err) {
@@ -25,7 +26,13 @@ const fetchUserSelf = async () => {
 };
 
 const fetchTracks = async (term) => {
-  const request = await axios.get(`${config.API_SPOTIFY_URL}/search?q=${term}&type=track&limit=10`);
+  let request;
+  
+  try{
+    request = await axios.get(`${config.API_SPOTIFY_URL}/search?q=${term}&type=track&limit=10`);
+  } catch (err) {
+    throw (err.message);
+  }
 
   return {
     type: types.FETCH_TRACKS,
